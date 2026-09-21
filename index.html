@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEXABUILD — Construction du Futur</title>
+  <meta name="description" content="NEXABUILD — Entreprise de construction innovante. Bâtiments intelligents, durables et futuristes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Canvas d'arrière-plan animé -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Barre de navigation -->
+  <header class="navbar" id="navbar">
+    <a href="#" class="logo">
+      <span class="logo-mark">◈</span> NEXA<span class="accent">BUILD</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#accueil" class="nav-link active" data-i18n="nav.home">Accueil</a>
+      <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+      <a href="#services" class="nav-link" data-i18n="nav.services">Services</a>
+      <a href="#projets" class="nav-link" data-i18n="nav.projects">Projets</a>
+      <a href="#apropos" class="nav-link" data-i18n="nav.about">À propos</a>
+    </nav>
+    <div class="nav-right">
+      <button class="btn btn-primary nav-cta" onclick="scrollToSection('contact')" data-i18n="nav.cta">Démarrer un projet</button>
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-btn" id="lang-btn" aria-label="Changer de langue">
+          <span class="flag" id="lang-flag">🇫🇷</span>
+          <span class="lang-arrow">▾</span>
+        </button>
+        <ul class="lang-dropdown" id="lang-dropdown">
+          <li>
+            <button class="lang-option active" data-lang="fr">
+              <span class="flag">🇫🇷</span> Français
+            </button>
+          </li>
+          <li>
+            <button class="lang-option" data-lang="ru">
+              <span class="flag">🇷🇺</span> Русский
+            </button>
+          </li>
+          <li>
+            <button class="lang-option" data-lang="ka">
+              <span class="flag">🇬🇪</span> ქართული
+            </button>
+          </li>
+          <li>
+            <button class="lang-option" data-lang="ce">
+              <span class="flag">
+                <svg class="flag-svg" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect x="0" width="5" height="20" fill="#FCD116"/>
+                  <rect x="5" width="25" height="6.67" fill="#3A9D23"/>
+                  <rect x="5" y="6.67" width="25" height="6.66" fill="#ffffff"/>
+                  <rect x="5" y="13.33" width="25" height="6.67" fill="#CE2029"/>
+                </svg>
+              </span> Нохчийн
+            </button>
+          </li>
+        </ul>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Section Accueil / Hero -->
+  <section id="accueil" class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span> <span data-i18n="hero.badge">Innovation &amp; Construction depuis 2015</span>
+      </div>
+      <h1 class="hero-title" data-i18n-html="hero.title">
+        Nous construisons<br />
+        <span class="gradient-text">le futur</span>,<br />
+        aujourd'hui.
+      </h1>
+      <p class="hero-subtitle" data-i18n="hero.subtitle">
+        NEXABUILD conçoit des structures intelligentes, durables et à la pointe
+        de la technologie pour transformer vos espaces en expériences.
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="scrollToSection('contact')" data-i18n="hero.cta">
+          Discutons de votre projet <span class="arrow">→</span>
+        </button>
+        <button class="btn btn-ghost" onclick="scrollToSection('projets')" data-i18n="hero.cta2">
+          Voir nos réalisations
+        </button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number" data-count="250">0</span><span class="stat-plus">+</span>
+          <span class="stat-label" data-i18n="hero.stat1">Projets livrés</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-count="10">0</span><span class="stat-plus">+</span>
+          <span class="stat-label" data-i18n="hero.stat2">Années d'expérience</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-count="98">0</span><span class="stat-plus">%</span>
+          <span class="stat-label" data-i18n="hero.stat3">Clients satisfaits</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator" onclick="scrollToSection('services')">
+      <div class="mouse"><div class="wheel"></div></div>
+      <span data-i18n="hero.scroll">Défiler</span>
+    </div>
+  </section>
+
+  <!-- Section Contact (au milieu, en haut) -->
+  <section id="contact" class="section section-contact">
+    <div class="section-header">
+      <span class="section-tag" data-i18n="contact.tag">// Contact</span>
+      <h2 class="section-title" data-i18n-html="contact.title">Parlons de <span class="gradient-text">votre projet</span></h2>
+      <p class="section-desc" data-i18n="contact.desc">Remplissez le formulaire, notre équipe vous répond sous 24h.</p>
+    </div>
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <div class="info-item glass-card">
+          <div class="info-icon">📍</div>
+          <div>
+            <h4 data-i18n="contact.address">Adresse</h4>
+            <p>12 Avenue de l'Innovation<br />75008 Paris, France</p>
+          </div>
+        </div>
+        <div class="info-item glass-card">
+          <div class="info-icon">📞</div>
+          <div>
+            <h4 data-i18n="contact.phone">Téléphone</h4>
+            <p>+33 1 23 45 67 89</p>
+          </div>
+        </div>
+        <div class="info-item glass-card">
+          <div class="info-icon">✉️</div>
+          <div>
+            <h4 data-i18n="contact.email">Email</h4>
+            <p>contact@nexabuild.fr</p>
+          </div>
+        </div>
+        <div class="info-item glass-card">
+          <div class="info-icon">🕐</div>
+          <div>
+            <h4 data-i18n="contact.hours">Horaires</h4>
+            <p data-i18n="contact.hours.value">Lun – Ven : 8h00 – 18h00</p>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form glass-panel" id="contact-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name" data-i18n="form.name">Nom complet</label>
+            <input type="text" id="name" name="name" placeholder="Jean Dupont" data-i18n-ph="form.name.ph" required />
+            <span class="error-msg" data-i18n="form.name.err">Veuillez saisir votre nom.</span>
+          </div>
+          <div class="form-group">
+            <label for="email" data-i18n="form.email">Email</label>
+            <input type="email" id="email" name="email" placeholder="jean@exemple.fr" data-i18n-ph="form.email.ph" required />
+            <span class="error-msg" data-i18n="form.email.err">Veuillez saisir un email valide.</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone" data-i18n="form.phone">Téléphone</label>
+            <input type="tel" id="phone" name="phone" placeholder="+33 6 12 34 56 78" data-i18n-ph="form.phone.ph" />
+          </div>
+          <div class="form-group">
+            <label for="subject" data-i18n="form.subject">Type de projet</label>
+            <select id="subject" name="subject">
+              <option value="construction" data-i18n="form.subject.op1">Construction neuve</option>
+              <option value="renovation" data-i18n="form.subject.op2">Rénovation</option>
+              <option value="design" data-i18n="form.subject.op3">Design &amp; Architecture</option>
+              <option value="autre" data-i18n="form.subject.op4">Autre</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message" data-i18n="form.message">Votre message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Décrivez votre projet en quelques lignes..." data-i18n-ph="form.message.ph" required></textarea>
+          <span class="error-msg" data-i18n="form.message.err">Veuillez décrire votre projet.</span>
+        </div>
+        <button type="submit" class="btn btn-primary btn-submit" data-i18n="form.submit">
+          Envoyer le message <span class="arrow">→</span>
+        </button>
+        <p class="form-success" id="form-success" data-i18n="form.success">✓ Message envoyé ! Nous vous recontactons très vite.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Section Services -->
+  <section id="services" class="section">
+    <div class="section-header">
+      <span class="section-tag" data-i18n="services.tag">// Services</span>
+      <h2 class="section-title" data-i18n-html="services.title">Ce que nous <span class="gradient-text">construisons</span></h2>
+      <p class="section-desc" data-i18n="services.desc">Des solutions complètes de construction, de la conception à la livraison.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🏗️</div>
+        <h3 data-i18n="service1.title">Construction Générale</h3>
+        <p data-i18n="service1.desc">Bâtiments résidentiels, commerciaux et industriels réalisés avec précision et matériaux haut de gamme.</p>
+        <span class="card-link" data-i18n="services.more">En savoir plus →</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3 data-i18n="service2.title">Bâtiments Intelligents</h3>
+        <p data-i18n="service2.desc">Intégration de domotique, gestion énergétique et systèmes connectés pour des espaces autonomes.</p>
+        <span class="card-link" data-i18n="services.more">En savoir plus →</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🌱</div>
+        <h3 data-i18n="service3.title">Construction Durable</h3>
+        <p data-i18n="service3.desc">Éco-conception, matériaux recyclés et certification environnementale pour un avenir responsable.</p>
+        <span class="card-link" data-i18n="services.more">En savoir plus →</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📐</div>
+        <h3 data-i18n="service4.title">Design &amp; Architecture</h3>
+        <p data-i18n="service4.desc">Conception architecturale audacieuse et modélisation 3D immersive avant le premier coup de pelle.</p>
+        <span class="card-link" data-i18n="services.more">En savoir plus →</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <h3 data-i18n="service5.title">Rénovation</h3>
+        <p data-i18n="service5.desc">Transformation et modernisation de structures existantes en espaces contemporains et performants.</p>
+        <span class="card-link" data-i18n="services.more">En savoir plus →</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛠️</div>
+        <h3 data-i18n="service6.title">Gestion de Projet</h3>
+        <p data-i18n="service6.desc">Coordination complète, respect des délais et du budget grâce à une équipe dédiée et transparente.</p>
+        <span class="card-link" data-i18n="services.more">En savoir plus →</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Projets -->
+  <section id="projets" class="section section-dark">
+    <div class="section-header">
+      <span class="section-tag" data-i18n="projects.tag">// Portfolio</span>
+      <h2 class="section-title" data-i18n-html="projects.title">Projets <span class="gradient-text">remarquables</span></h2>
+      <p class="section-desc" data-i18n="projects.desc">Un aperçu de nos réalisations les plus ambitieuses.</p>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80');">
+          <div class="project-overlay">
+            <span class="project-category" data-i18n="project1.category">Commercial</span>
+            <h3 data-i18n="project1.title">Tour Horizon</h3>
+            <p data-i18n="project1.loc">Paris, France</p>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80');">
+          <div class="project-overlay">
+            <span class="project-category" data-i18n="project2.category">Résidentiel</span>
+            <h3 data-i18n="project2.title">Villa Éclipse</h3>
+            <p data-i18n="project2.loc">Côte d'Azur, France</p>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=800&q=80');">
+          <div class="project-overlay">
+            <span class="project-category" data-i18n="project3.category">Intelligent</span>
+            <h3 data-i18n="project3.title">Tech Campus</h3>
+            <p data-i18n="project3.loc">Lyon, France</p>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&q=80');">
+          <div class="project-overlay">
+            <span class="project-category" data-i18n="project4.category">Durable</span>
+            <h3 data-i18n="project4.title">Éco-Pavillon</h3>
+            <p data-i18n="project4.loc">Bordeaux, France</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section À propos -->
+  <section id="apropos" class="section">
+    <div class="about-wrapper">
+      <div class="about-visual">
+        <div class="about-shape"></div>
+        <div class="about-image" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80');"></div>
+      </div>
+      <div class="about-content">
+        <span class="section-tag" data-i18n="about.tag">// À propos</span>
+        <h2 class="section-title" data-i18n-html="about.title">Une vision <span class="gradient-text">tournée vers demain</span></h2>
+        <p class="about-text" data-i18n="about.text1">
+          NEXABUILD est née d'une conviction simple : la construction ne doit pas
+          seulement répondre aux besoins d'aujourd'hui, mais anticiper ceux de demain.
+        </p>
+        <p class="about-text" data-i18n="about.text2">
+          Notre équipe d'ingénieurs, d'architectes et de techniciens combine savoir-faire
+          artisanal et technologies de pointe pour livrer des ouvrages durables,
+          intelligents et esthétiques.
+        </p>
+        <ul class="about-list">
+          <li><span class="check">✓</span> <span data-i18n="about.list1">Matériaux de qualité premium</span></li>
+          <li><span class="check">✓</span> <span data-i18n="about.list2">Respect strict des délais</span></li>
+          <li><span class="check">✓</span> <span data-i18n="about.list3">Transparence totale des coûts</span></li>
+          <li><span class="check">✓</span> <span data-i18n="about.list4">Certification qualité ISO 9001</span></li>
+        </ul>
+        <button class="btn btn-primary" onclick="scrollToSection('contact')" data-i18n="about.cta">Travailler avec nous</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="#" class="logo"><span class="logo-mark">◈</span> NEXA<span class="accent">BUILD</span></a>
+        <p data-i18n="footer.brand">Construire le futur, une structure à la fois.</p>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer.nav">Navigation</h4>
+        <a href="#accueil" data-i18n="nav.home">Accueil</a>
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#projets" data-i18n="nav.projects">Projets</a>
+        <a href="#apropos" data-i18n="nav.about">À propos</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="footer.contact">Contact</h4>
+        <a href="tel:+33123456789">+33 1 23 45 67 89</a>
+        <a href="mailto:contact@nexabuild.fr">contact@nexabuild.fr</a>
+        <p>12 Avenue de l'Innovation, Paris</p>
+      </div>
+      <div class="footer-social">
+        <h4 data-i18n="footer.follow">Suivez-nous</h4>
+        <div class="social-icons">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="X">x</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer.rights">© 2026 NEXABUILD. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="translations.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
